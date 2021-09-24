@@ -64,11 +64,13 @@ class _HomepageState extends State<Homepage> {
                 "main topic",
               ),
             ),
-            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
-            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
-            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
-            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
-            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
+            contonlist_tile(Icons.person, "Sajid shaikh", () => {}),
+            contonlist_tile(Icons.contact_phone, " 7415311601", () => {}),
+            contonlist_tile(Icons.notifications, "Notification", () => {}),
+            contonlist_tile(Icons.settings, "Settings", () => {}),
+            contonlist_tile(Icons.info, "Information", () => {}),
+            contonlist_tile(Icons.login, "ReLogin", () => {}),
+            contonlist_tile(Icons.logout, "Logout", () => {}),
           ],
         ),
       ),
@@ -76,19 +78,13 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class contonlist_tile extends StatefulWidget {
+class contonlist_tile extends StatelessWidget {
   // const contonlist_tile({Key? key}) : super(key: key);
   IconData icon;
-  String  text;
-  Function onTap;
+  String text;
+  dynamic onTap;
+  contonlist_tile(this.icon, this.text, this.onTap);
 
-  contonlist_tile(this.icon,this.text,this.onTap )
-
-  @override
-  _contonlist_tileState createState() => _contonlist_tileState();
-}
-
-class _contonlist_tileState extends State<contonlist_tile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
