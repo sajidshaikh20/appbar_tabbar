@@ -28,13 +28,6 @@ class _HomepageState extends State<Homepage> {
             style: TextStyle(fontSize: 20, color: Colors.black)),
         centerTitle: true,
         elevation: 20,
-        leading: Padding(
-          padding: EdgeInsets.all(8),
-          child: Icon(
-            Icons.add_shopping_cart,
-            color: Colors.black,
-          ),
-        ),
         actions: [
           Padding(
             padding: EdgeInsets.all(5),
@@ -45,20 +38,37 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
-      // endDrawer: drawer(),
-      drawer: Drawer(),
-      body: Container(
-        child: Column(
+      body: Center(
+        child: Text(
+          "MY HOME PAGE",
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
           children: [
-            Title(
-                color: Colors.black,
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Center(
-                      child: Text(
-                          " Please swipe the right and left screen to  open drawer.",
-                          style: TextStyle(fontSize: 25, color: Colors.black))),
-                )),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    Colors.cyanAccent.shade100,
+                    Colors.cyan,
+                  ],
+                ),
+              ),
+              child: Text(
+                "main topic",
+              ),
+            ),
+            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
+            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
+            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
+            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
+            contonlist_tile(Icons.person,"Sajid shaikh",()=>{}),
           ],
         ),
       ),
@@ -66,156 +76,47 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class Drawer extends StatelessWidget {
-  const Drawer({
-    Key? key,
-  }) : super(key: key);
+class contonlist_tile extends StatefulWidget {
+  // const contonlist_tile({Key? key}) : super(key: key);
+  IconData icon;
+  String  text;
+  Function onTap;
+
+  contonlist_tile(this.icon,this.text,this.onTap )
 
   @override
+  _contonlist_tileState createState() => _contonlist_tileState();
+}
+
+class _contonlist_tileState extends State<contonlist_tile> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 430,
-      width: 200,
-      color: Colors.lightBlue.shade50,
-      child: Column(
-        children: [
-          SizedBox(
-            height: 12,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        splashColor: Colors.cyanAccent.shade100,
+        onTap: onTap,
+        child: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(icon),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(text,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                ],
+              ),
+              Icon(Icons.keyboard_arrow_right),
+            ],
           ),
-          Container(
-            // height: 60,
-            width: 80,
-            child: Text(
-              "  DEMO",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 1",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 2",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 3",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 4",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 5",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 6",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          Container(
-            // height: 60,
-            width: 135,
-            child: Text(
-              " Notification 7",
-              style: TextStyle(fontSize: 20, color: Colors.black),
-            ),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 2, color: Colors.black),
-              borderRadius: BorderRadius.circular(13.0),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
