@@ -45,8 +45,8 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
-      endDrawer: drawer(),
-      // drawer: drawer(),
+      // endDrawer: drawer(),
+      drawer: Drawer(),
       body: Container(
         child: Column(
           children: [
@@ -66,8 +66,8 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class drawer extends StatelessWidget {
-  const drawer({
+class Drawer extends StatelessWidget {
+  const Drawer({
     Key? key,
   }) : super(key: key);
 
